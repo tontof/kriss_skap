@@ -6,7 +6,7 @@ An example is available on [tontof.net](http://tontof.net/skap).
 
 Installation
 ============
-* If you just want to use kriss skap, download [index.html](https://raw.github.com/tontof/kriss_skap/master/index.html) file and modify escape variable depending your scenario.
+* If you just want to use KrISS Skap, download [index.html](https://raw.github.com/tontof/kriss_skap/master/index.html) file and modify escape variable depending your scenario.
 
 * If you want to look at the source, look at the src directory.
 To generate index.html file, just run the command :
@@ -28,7 +28,7 @@ Use [animate.css](https://animate.style/) for animations.
 
 Copyleft (ɔ) - Tontof - http://tontof.net
 
-Use KrISS skap at your own risk.
+Use KrISS Skap at your own risk.
 
 [Free software means users have the four essential freedoms](http://www.gnu.org/philosophy/philosophy.html):
 * to run the program
