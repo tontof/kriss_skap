@@ -1,0 +1,28 @@
+file="kriss_skap.html"
+
+function catFile {
+  fileOutput=$(file $1)
+  if [[ "$fileOutput" == *text* ]]
+  then
+    cat $1
+  else
+    base64 $1
+  fi
+}
+
+head -5 ${file}
+echo '<style>'
+catFile 'inc/animate.min.css'
+catFile 'inc/style.css'
+echo '</style>'
+echo '<script>'
+catFile 'inc/script.js' \
+| sed -e "s:loadFileJSON,:loadStaticJSON,:g" \
+| sed -e "s:escape = {}:escape = \nESCAPE.JSON\n:g" \
+| sed -e "/ESCAPE.JSON/r escape.json" \
+| sed -e "/^ESCAPE.JSON$/d"
+echo '</script>'
+echo '</head>'
+echo '<body>'
+echo '</body>'
+echo '</html>'

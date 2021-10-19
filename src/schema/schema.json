@@ -1,0 +1,187 @@
+{
+  "title": "Escape game",
+  "type": "object",
+  "required": [
+    "home",
+    "elements"
+  ],
+  "properties": {
+    "home": {
+      "type": "string",
+      "description": "First page displayed",
+      "default": "home"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/page"
+          },
+          {
+            "$ref": "#/definitions/modal"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "base": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "style": {
+          "type": "object"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "page": {
+      "title": "page",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        }
+      ],
+      "required": ["id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["page"]
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/form"
+              },
+              {
+                "$ref": "#/definitions/title"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "modal": {
+      "title": "modal",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        }
+      ],
+      "required": ["id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["modal"]
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/title"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "question": {
+      "title": "question",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        }
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["question"]
+        },
+        "question": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        }
+      }
+    },
+    "title": {
+      "title": "title",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        }
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["title"]
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    },
+    "text": {
+      "title": "text",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        }
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["text"]
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    },
+    "form": {
+      "title": "form",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        }
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["form"]
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/question"
+              }
+            ]
+          }
+        },
+        "correct": {
+          "type": "string"
+        },
+        "incorrect": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "home": "home",
+  "elements": [
+    {
+      "id": "home",
+      "type": "page",
+      "style": {
+        "backgroundColor": "#666"
+      },
+      "contentStyle": {
+        "display": "grid",
+        "grid-template-columns": "repeat(3,1fr)",
+        "width": "100%"
+      },
+      "content": [
+        {
+          "type": "title",
+          "style": {
+            "color": "#fff",
+            "grid-column": "2"
+          },
+          "content": "Welcome to KrISS Skap"
+        },
+        {
+          "id": "form1",
+          "type": "form",
+          "style": {
+            "grid-column": "1"
+          },
+          "content": [
+            {
+              "type": "question",
+              "question": "What is the answer to life, the universe, and everything?",
+              "answer": "42"
+            }
+          ],
+          "submit": "Validate"
+        },
+        {
+          "id": "form2",
+          "type": "form",
+          "style": {
+            "grid-column": "3"
+          },
+          "content": [
+            {
+              "type": "question",
+              "question": "What is the answer to life, the universe, and everything?",
+              "answer": "42"
+            }
+          ],
+          "submit": "Validate"
+        },
+        {
+          "type": "multiform",
+          "style": {
+            "grid-column": "2"
+          },
+          "forms": ["form1", "form2"],
+          "correct": "correct",
+          "submit": "Validate",
+          "incorrect": "wrong"
+        }
+      ]
+    },
+    {
+      "id": "correct",
+      "type": "page",
+      "style": {
+        "color": "#fff",
+        "backgroundColor": "green"
+      },
+      "content": [
+        {
+          "type": "title",
+          "content": "Success"
+        }, {
+          "type": "form",
+          "content": [
+            {
+              "type": "question",
+              "question": "What is the answer to life, the universe, and everything?",
+              "answer": "42"
+            }
+          ],
+          "correct": "home",
+          "incorrect": "wrong2",
+          "submit": "Validate"
+        }
+      ]
+    },
+    {
+      "id": "wrong",
+      "type": "modal",
+      "content": [
+        {
+          "type": "title",
+          "style": {
+            "color": "red"
+          },
+          "content": "Not all answers match"
+        }
+      ]
+    },
+    {
+      "id": "wrong2",
+      "type": "page",
+      "content": [
+        {
+          "type": "title",
+          "content": "Sorry, you're wrong"
+        },
+        {
+          "type": "form",
+          "content": [
+            {
+              "type": "question",
+              "question": "What is the answer to life, the universe, and everything?",
+              "answer": "42"
+            }
+          ],
+          "correct": "correct",
+          "incorrect": "wrong",
+          "submit": "Validate"
+        }
+      ]
+    }
+  ]
+}
